@@ -4,7 +4,7 @@ window.addEventListener("load",()=>{
         navigator.geolocation.getCurrentPosition((position)=>{
             let lon= position.coords.longitude;
             let lat= position.coords.latitude;
-            const url= `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&` + `lon=${lon}&appid=${APIKEY}`;
+            const url= `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&` + `lon=${lon}&appid=${apikey}`;
             
 
             fetch(url).then((res)=>{
@@ -24,7 +24,7 @@ window.addEventListener("load",()=>{
 
 function searchByCity(){
     var place= document.getElementById('input').value;
-    var urlsearch= `http://api.openweathermap.org/data/2.5/weather?q=${place}&` + `appid=${APIKEY}`;
+    var urlsearch= `http://api.openweathermap.org/data/2.5/weather?q=${place}&` + `appid=${apikey}`;
 
     fetch(urlsearch).then((res)=>{
         return res.json();
@@ -37,7 +37,7 @@ function searchByCity(){
 
 function weatherReport(data){
 
-    var urlcast= `http://api.openweathermap.org/data/2.5/forecast?q=${data.name}&` + `appid=${APIKEY}`;
+    var urlcast= `http://api.openweathermap.org/data/2.5/forecast?q=${data.name}&` + `appid=${apikey}`;
 
     fetch(urlcast).then((res)=>{
         return res.json();
